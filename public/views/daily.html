@@ -1,0 +1,470 @@
+<div class="dailyView">
+    <div class="ui centered stackable grid">
+        <div class="row">
+            <div class="three wide center aligned column ui segment">
+                <div class="ui grid">
+                    <div class="row">
+                        <div class="periodInput two wide column left floated">
+                            <md-select placeholder="Period" ng-model="selectedPeriod">
+                                <md-option value="{{i}}" ng-repeat="i in arrayLength(11)">{{$index}}</md-option>
+                            </md-select>
+                        </div>
+
+                        <div class="students eight wide column right floated">
+                            <div class="ui input student-input" ng-repeat="student in periods[selectedPeriod]">
+                                <div class="ui label">
+                                    <input type="checkbox" ng-click="studentSelectionChange(student)">
+                                    {{student.name}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="six wide column">
+                <div class="before">
+
+                    <div class="row">
+                        <h1 class="ui header one wide column center aligned">Period Start</h1>
+                    </div>
+
+                    <div class="ui divider"></div>
+
+                    <div class="before__dollars">
+                        <div class="ui header one wide column center aligned">Dollars</div>
+
+                        <div class="before__dollars__ones money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#1s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.ones" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['ones'] = 0">
+                                            {{daily.values.start['ones'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="before__dollars__fives money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#5s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.fives" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['fives'] = 0">
+                                            {{daily.values.start['fives'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="before__dollars__tens money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#10s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.tens" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['tens'] = 0">
+                                            {{daily.values.start['tens'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="before__dollars__twenties money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#20s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.twenties" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['twenties'] = 0">
+                                            {{daily.values.start['twenties'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui divider"></div>
+
+                    <div class="before__coins">
+                        <div class="ui header one wide column center aligned">Coins</div>
+
+                        <div class="before__coins__pennies money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Pennies</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.pennies" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['pennies'] = 0">
+                                            {{daily.values.start['pennies'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="before__coins__nickels money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Nickels</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.nickels" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['nickels'] = 0">
+                                            {{daily.values.start['nickels'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="before__coins__dimes money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Dimes</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.dimes" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['dimes'] = 0">
+                                            {{daily.values.start['dimes'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="before__coins__quarters money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Quarters</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.start.quarters" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['quarters'] = 0">
+                                            {{daily.values.start['quarters'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-
+                        </div>
+                    </div>
+
+
+                    <div class="ui divider"></div>
+
+                    <div class="ui centered grid">
+                        <div class="row">
+                            <div class="one wide column money-label">
+                                <div class="ui header">Total</div>
+                            </div>
+
+                            <div class="three wide column">
+                                <div class="ui message">{{startSum() | currency}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two wide column"></div>
+
+            <div class="six wide column">
+                <div class="after">
+
+                    <div class="row">
+                        <h1 class="ui header one wide column center aligned">Period End</h1>
+                    </div>
+
+                    <div class="ui divider"></div>
+
+                    <div class="after__dollars">
+                        <div class="ui header one wide column center aligned">Dollars</div>
+
+                        <div class="after__dollars__ones money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#1s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.ones" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['ones'] = 0">
+                                            {{daily.values.end['ones'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="after__dollars__fives money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#5s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.fives" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['fives'] = 0">
+                                            {{daily.values.end['fives'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="after__dollars__tens money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#10s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.tens" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['tens'] = 0">
+                                            {{daily.values.end['tens'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="after__dollars__twenties money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#20s</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.twenties" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['twenties'] = 0">
+                                            {{daily.values.end['twenties'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui divider"></div>
+
+                    <div class="after__coins">
+                        <div class="ui header one wide column center aligned">Coins</div>
+
+                        <div class="after__coins__pennies money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Pennies</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.pennies" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['pennies'] = 0">
+                                            {{daily.values.end['pennies'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="after__coins__nickels money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Nickels</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.nickels" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['nickels'] = 0">
+                                            {{daily.values.end['nickels'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="after__coins__dimes money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Dimes</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.dimes" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['dimes'] = 0">
+                                            {{daily.values.end['dimes'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="after__coins__quarters money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="seven wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">#Quarters</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field" ng-model="daily.end.quarters" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['quarters'] = 0">
+                                            {{daily.values.end['quarters'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="ui divider"></div>
+
+                    <div class="ui centered grid">
+                        <div class="row">
+                            <div class="one wide column money-label">
+                                <div class="ui header">Total</div>
+                            </div>
+
+                            <div class="three wide column">
+                                <div class="ui message">{{endSum() | currency}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

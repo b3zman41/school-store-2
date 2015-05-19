@@ -1,0 +1,27 @@
+<md-dialog class="newPostDialog ui modal active">
+    <i class="close icon" ng-click="$mdDialog.cancel()"></i>
+    <div class="header">
+        Create New Blog Post
+    </div>
+    <div class="content">
+        <div class="ui form">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" placeholder="Post Title" ng-model="post.title">
+            </div>
+
+            <div class="field">
+                <label>Post Text</label>
+                <textarea ng-model="post.text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui red button" ng-click="$mdDialog.cancel()">
+            Cancel
+        </div>
+        <div class="ui positive button" ng-click="submit(post.title, post.text)">
+            Post
+        </div>
+    </div>
+</md-dialog>

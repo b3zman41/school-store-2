@@ -1,0 +1,24 @@
+.dailyView {
+  margin-top: 50px;
+  padding: 20px 50px;
+
+  .money-label {
+    margin-right: 20px;
+
+    position: relative;
+    top: 15px;
+  }
+
+  .money-input-field {
+    padding: 1em 1.5em !important;
+  }
+
+  .before,.after {
+    margin-top: 20px;
+  }
+
+  .student-input:not(:last-child) {
+    display: block;
+    margin-bottom: 10px;
+  }
+}

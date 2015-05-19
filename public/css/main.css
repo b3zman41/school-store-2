@@ -1,0 +1,32 @@
+.homeView .posts {
+  margin-top: 50px !important; }
+  .homeView .posts .ui.content {
+    font-size: 14px;
+    line-height: 21px;
+    padding: 10px 30px; }
+
+.dailyView {
+  margin-top: 50px;
+  padding: 20px 50px; }
+  .dailyView .money-label {
+    margin-right: 20px;
+    position: relative;
+    top: 15px; }
+  .dailyView .money-input-field {
+    padding: 1em 1.5em !important; }
+  .dailyView .before, .dailyView .after {
+    margin-top: 20px; }
+  .dailyView .student-input:not(:last-child) {
+    display: block;
+    margin-bottom: 10px; }
+
+.loginDialog {
+  width: 300px; }
+
+.ui.modal {
+  top: 25% !important; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+/*# sourceMappingURL=main.css.map */

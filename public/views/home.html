@@ -1,0 +1,22 @@
+<div class="homeView">
+    <div class="posts ui centered stackable grid">
+        <div class="row">
+            <div class="two wide column">
+                <button class="ui button primary" ng-if="AuthService.isAdmin()" ng-click="showNewBlogDialog($event)">New Post</button>
+            </div>
+            <div class="ui six wide column">
+                <div class="row ui segment" ng-repeat="post in posts">
+                    <div layout="row" layout-align="space-between center">
+                        <div>{{post.account.username}}</div>
+                        <div>{{post.created_at | lDate}}</div>
+                    </div>
+
+                    <div class="ui horizontal divider">{{post.title}}</div>
+                    <div class="ui content">{{post.text}}</div>
+                </div>
+            </div>
+            <div class="two wide column">
+            </div>
+        </div>
+    </div>
+</div>
