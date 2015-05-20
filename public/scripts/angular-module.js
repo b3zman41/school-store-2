@@ -41,4 +41,10 @@ angular.module("school-store", [
         return function (input, params) {
             return dateFilter(new Date(input).getTime(), params);
         };
-    }]);
+    }])
+
+.filter("round", function () {
+        return function (input) {
+            return Math.round(input);
+        }
+    });

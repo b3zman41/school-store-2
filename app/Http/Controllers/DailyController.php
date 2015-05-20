@@ -29,8 +29,7 @@ class DailyController extends Controller {
             "start_check" => "required",
             "end_cash" => "required",
             "end_check" => "required",
-            "presentStudents" => "required",
-            "sales" => "required"
+            "presentStudents" => "required"
         ]);
 
         if($validation->fails())
@@ -45,14 +44,17 @@ class DailyController extends Controller {
             $sales = array();
             $students = array();
 
-            foreach($dailyArray["sales"] as $sale)
+            if(!is_null($dailyArray["sales"]))
             {
-                array_push($sales, Sale::create($sale));
-            }
+                foreach ($dailyArray["sales"] as $sale)
+                {
+                    array_push($sales, Sale::create($sale));
+                }
 
-            foreach($dailyArray["presentStudents"] as $student)
-            {
-                array_push($students, DailyPerson::create(["student_id" => $student["id"]]));
+                foreach ($dailyArray["presentStudents"] as $student)
+                {
+                    array_push($students, DailyPerson::create(["student_id" => $student["id"]]));
+                }
             }
 
             $daily->sales()->saveMany($sales);

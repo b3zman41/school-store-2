@@ -9,6 +9,11 @@
     top: 15px;
   }
 
+  .removeButton {
+    position: relative;
+    top: 15px;
+  }
+
   .money-input-field {
     padding: 1em 1.5em !important;
   }
@@ -30,7 +35,11 @@
 
   .periodInput .dropdown {
     min-width: 0px !important;
-    width: 100% !important;
+    width: 100%;
+  }
+
+  .dropdown.itemDropdown {
+    width: 255px !important;
   }
 
   .sales  {

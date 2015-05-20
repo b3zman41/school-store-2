@@ -12,6 +12,9 @@
     margin-right: 20px;
     position: relative;
     top: 15px; }
+  .dailyView .removeButton {
+    position: relative;
+    top: 15px; }
   .dailyView .money-input-field {
     padding: 1em 1.5em !important; }
   .dailyView .before, .dailyView .after {
@@ -25,7 +28,9 @@
     text-align: center !important; }
   .dailyView .periodInput .dropdown {
     min-width: 0px !important;
-    width: 100% !important; }
+    width: 100%; }
+  .dailyView .dropdown.itemDropdown {
+    width: 255px !important; }
   .dailyView .sales .sale:not(:first-child) {
     margin-top: 20px; }
 

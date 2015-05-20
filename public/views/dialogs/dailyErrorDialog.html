@@ -1,0 +1,21 @@
+<md-dialog class="dailyErrorDialog ui modal active">
+    <i class="close icon" ng-click="$mdDialog.cancel()"></i>
+    <div class="ui red header">
+        Errors
+    </div>
+    <div class="ui content">
+
+        <div class="ui bulleted list">
+            <div class="item" ng-repeat="error in errors">
+                <h4 class="ui header">{{error}}</h4>
+            </div>
+        </div>
+
+        <h2 class="ui header">
+            Please fix these errors before trying to continue
+        </h2>
+    </div>
+    <div class="actions">
+        <div class="ui button primary" ng-click="$mdDialog.hide()">Okay</div>
+    </div>
+</md-dialog>
