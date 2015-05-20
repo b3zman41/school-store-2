@@ -34,6 +34,14 @@ angular.module("daily", [])
                 console.log($scope.periods);
             }, angular.noop);
 
+        $http({
+            url: "/items/",
+            method: "GET"
+        })
+            .then(function (success) {
+                $scope.availableItems = success.data;
+            }, angular.noop);
+
         $scope.$watch("daily.period", function (newVal, oldVal) {
             if(newVal !== oldVal) {
                 $scope.presentStudents = [];
@@ -94,6 +102,10 @@ angular.module("daily", [])
 
             return array;
         };
+
+        $scope.periodClick = function (i) {
+            $scope.selectedPeriod = i;
+        }
 
         $scope.submit = function () {
             var data = {};

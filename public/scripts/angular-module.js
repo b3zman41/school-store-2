@@ -12,7 +12,8 @@ angular.module("school-store", [
     "SalesRecap",
     "DialogService",
     "ConfirmDialog",
-    "BlogDialog"
+    "BlogDialog",
+    "SemanticDropdown"
 ])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider)
     {

@@ -19,6 +19,15 @@
   .dailyView .student-input:not(:last-child) {
     display: block;
     margin-bottom: 10px; }
+  .dailyView .submit .ui.button {
+    margin-top: 100px !important;
+    font-size: 25px !important;
+    text-align: center !important; }
+  .dailyView .periodInput .dropdown {
+    min-width: 0px !important;
+    width: 100% !important; }
+  .dailyView .sales .sale:not(:first-child) {
+    margin-top: 20px; }
 
 .loginDialog {
   width: 300px; }

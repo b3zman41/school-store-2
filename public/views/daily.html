@@ -4,10 +4,14 @@
             <div class="three wide center aligned column ui segment">
                 <div class="ui grid">
                     <div class="row">
-                        <div class="periodInput two wide column left floated">
-                            <md-select placeholder="Period" ng-model="selectedPeriod">
-                                <md-option value="{{i}}" ng-repeat="i in arrayLength(11)">{{$index}}</md-option>
-                            </md-select>
+                        <div class="periodInput eight wide column left floated">
+                            <div class="ui selection dropdown">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Period</div>
+                                <div class="menu">
+                                    <div class="item" ng-click="periodClick(i)" ng-repeat="i in arrayLength(11)">{{$index}}</div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="students eight wide column right floated">
