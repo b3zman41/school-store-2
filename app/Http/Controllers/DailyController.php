@@ -39,7 +39,6 @@ class DailyController extends Controller {
         {
             $dailyArray = $request->all();
             $daily = Daily::create($dailyArray);
-            $daily->save();
 
             $sales = array();
             $students = array();
@@ -60,7 +59,8 @@ class DailyController extends Controller {
             $daily->sales()->saveMany($sales);
             $daily->students()->saveMany($students);
             $daily->account_id = $request->user->id;
-            //$daily->push();
+
+            $daily->save();
 
             return Daily::find($daily->id)->with("sales")->with("students")->get();
         }
