@@ -32,38 +32,48 @@ angular.module("school-store", [
             .state("daily", {
                 url: "/daily",
                 templateUrl: "/views/daily.html",
-                controller: "DailyController"
+                controller: "DailyController",
+
+                auth: true
             })
             .state("salesRecap", {
                 url: "/salesrecap",
                 templateUrl: "/views/salesrecap.html",
-                controller: "SalesRecapController"
+                controller: "SalesRecapController",
+
+                auth: true
             })
             .state("itemRecap", {
                 url: "/itemrecap",
                 templateUrl: "/views/itemrecap.html",
-                controller: "ItemRecapController"
+                controller: "ItemRecapController",
+
+                auth: true
             })
             .state("itemSettings", {
                 url: "/itemsettings",
                 templateUrl: "/views/itemsettings.html",
-                controller: "ItemSettingsController"
+                controller: "ItemSettingsController",
+
+                auth: true
             })
             .state("studentSettings", {
                 url: "/studentsettings",
                 templateUrl: "/views/studentsettings.html",
-                controller: "StudentSettingsController"
+                controller: "StudentSettingsController",
+
+                auth: true
             });
     }])
 
-.filter("lDate", ["dateFilter", function(dateFilter) {
+    .filter("lDate", ["dateFilter", function(dateFilter) {
         return function (input, params) {
             if(typeof(input) === "object") return dateFilter(d, params);
 
             if(input) {
                 var t = input.split(/[- :]/);
 
-// Apply each element to the Date function
+                // Apply each element to the Date function
                 var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
 
                 return dateFilter(d.getTime(), params);
@@ -71,8 +81,22 @@ angular.module("school-store", [
         };
     }])
 
-.filter("round", function () {
+    .filter("round", function () {
         return function (input) {
             return Math.round(input);
         }
-    });
+    })
+
+    .run(function ($rootScope, $location, AuthService) {
+        $rootScope.$on('$stateChangeStart', function (event, toState) {
+            //Is the route protected
+            if(toState.auth) {
+
+                //Are we logged in?
+                AuthService.account()
+                    .then(angular.noop, function (error) {
+                        $location.path('/');
+                    });
+            }
+        });
+    });;

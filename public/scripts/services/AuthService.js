@@ -52,6 +52,13 @@ angular.module("school-store-service", ["ngMaterial"])
             return false;
         };
 
+        AuthService.account = function () {
+            return $http({
+                url: '/auth',
+                method: "GET"
+            });
+        };
+
         return AuthService;
     }]);
 
