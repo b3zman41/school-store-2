@@ -27,7 +27,7 @@ gulp.task('dist', function () {
     return gulp.src('./public/index.html')
         .pipe(assets)
         .pipe(gulpif('*.js', ngmin({dynamic: true})))
-        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.js', uglify({mangle: false})))
         .pipe(assets.restore())
         .pipe(useref())
         .pipe(gulp.dest('./public/'));
