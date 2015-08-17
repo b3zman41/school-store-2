@@ -1,0 +1,24 @@
+.itemRecapView {
+  margin-top: 50px;
+
+  font-size: 125%;
+
+  .dropdown {
+    max-width: 300px;
+  }
+
+  .salesTable {
+    max-width: 1200px;
+
+    margin: 0 auto !important;
+    margin-top: 50px !important;
+  }
+
+  .dateMessage {
+    text-align: center;
+
+    & > * {
+      font-size: 200% !important;
+    }
+  }
+}

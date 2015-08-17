@@ -1,0 +1,45 @@
+.salesRecapView {
+  margin-top: 50px;
+
+  .recaps {
+    .recap {
+      h2 {
+        font-size: 20px !important;
+        text-align: center;
+      }
+    }
+
+    .dataSegment,.students {
+      padding-left: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .dataSegment {
+      padding-right: 0 !important;
+    }
+
+    .sales {
+      padding-right: 0 !important;
+    }
+  }
+
+  .table {
+    border: 0 !important;
+
+    .countData  {
+      text-align: center;
+    }
+  }
+
+  .salesParent {
+    padding: 0 !important;
+  }
+
+  .commentsRow:first-child {
+    padding-bottom: 0 !important;
+  }
+
+  .commentsRow {
+    text-align: center !important;
+  }
+}

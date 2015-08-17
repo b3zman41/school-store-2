@@ -126,6 +126,7 @@ angular.module("daily", [])
             data.period = $scope.selectedPeriod;
             data.start_check = 0;
             data.end_check = 0;
+            data.comment = $scope.daily.comment;
 
             $scope.soldItems = $scope.soldItems.filter(function (a) {
                 console.log(a);

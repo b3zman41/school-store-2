@@ -1,7 +1,13 @@
 @import "pages/home";
 @import "pages/daily";
+@import "pages/salesRecap";
+@import "pages/itemRecap";
+@import "pages/itemSettings";
+@import "pages/studentSettings";
 
 @import "dialogs/loginDialog";
+@import "dialogs/addNewItemDialog";
+@import "dialogs/addNewStudentDialog";
 
 .ui.modal {
 	top: 25% !important;

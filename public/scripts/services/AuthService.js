@@ -46,7 +46,7 @@ angular.module("school-store-service", ["ngMaterial"])
 
         AuthService.isAdmin = function () {
             if(AuthService.user) {
-                return AuthService.user.role === "admin";
+                return AuthService.user.role === "ADMIN";
             }
 
             return false;

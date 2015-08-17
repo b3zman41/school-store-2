@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Daily extends Model {
 
     protected $table = "daily";
-	protected $fillable = ["period", "start_cash", "start_check", "end_cash", "end_check", "account_id"];
+	protected $fillable = ["period", "start_cash", "start_check", "end_cash", "end_check", "account_id", "comment"];
 
     public function sales()
     {

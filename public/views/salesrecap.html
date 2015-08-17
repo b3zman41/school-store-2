@@ -1,0 +1,126 @@
+<div class="salesRecapView">
+
+    <div class="ui grid">
+        <div class="row">
+            <div class="three wide column"></div>
+            <div class="ten wide column">
+                <div class="ui centered grid">
+                    <div class="row">
+                        <div class="three wide column">
+                            <div class="ui selection dropdown itemDropdown">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Period</div>
+                                <div class="menu">
+                                    <div class="item" ng-click="updatePeriod(0)">0</div>
+                                    <div class="item" ng-click="updatePeriod(1)">1</div>
+                                    <div class="item" ng-click="updatePeriod(2)">2</div>
+                                    <div class="item" ng-click="updatePeriod(3)">3</div>
+                                    <div class="item" ng-click="updatePeriod(4)">4</div>
+                                    <div class="item" ng-click="updatePeriod(5)">5</div>
+                                    <div class="item" ng-click="updatePeriod(6)">6</div>
+                                    <div class="item" ng-click="updatePeriod(7)">7</div>
+                                    <div class="item" ng-click="updatePeriod(8)">8</div>
+                                    <div class="item" ng-click="updatePeriod(9)">9</div>
+                                    <div class="item" ng-click="updatePeriod(10)">10</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="three wide column">
+                            <div class="ui input labeled">
+                                <label class="ui label">Month</label>
+                                <input type="number" ng-change="updateMonth(month)" ng-model="month" placeholder="Month"/>
+                            </div>
+                        </div>
+
+                        <div class="one wide column"></div>
+
+                        <div class="three wide column">
+                            <div class="ui input labeled">
+                                <label class="ui label">Year</label>
+                                <input type="number" ng-change="updateYear(year)" ng-model="year" placeholder="Year"/>
+                            </div>
+                        </div>
+
+                        <div class="one wide column"></div>
+
+                        <div class="ui selection dropdown itemDropdown three wide column">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Order</div>
+                            <div class="menu">
+                                <div class="item" ng-click="updateOrder('asc')">Ascending</div>
+                                <div class="item" ng-click="updateOrder('desc')">Descending</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column"></div>
+        </div>
+
+        <div class="ui grid">
+            <div class="row">
+                <div class="recaps sixteen wide column">
+                    <div class="ui centered grid">
+                        <div class="row animate-repeat" ng-repeat="recap in recaps" ng-if="recap.students.length > 0 || recap.sales.length > 0">
+                            <div class="recap ten wide column ui grid">
+                                <div class="ui top attached segment message row">
+                                    <h2 class="ui header left floated six wide column">{{recap.created_at | lDate : 'short'}}</h2>
+                                    <h2 class="ui header three wide column">Period {{recap.period}}</h2>
+                                    <button ng-click="removeRecap(recap, $event)" class="ui button red labeled icon right floated"><i class="ui remove circle icon"></i> Remove</button>
+                                </div>
+                                <div class="ui attached segment dataSegment ui grid">
+                                    <div class="row">
+                                        <div class="students six wide column left floated">
+                                            <div class="ui segment message top attached">Present Students</div>
+                                            <div class="ui attached segment" ng-repeat="student in recap.students" ng-bind="student.student.name"></div>
+                                        </div>
+
+                                        <div class="sales ten wide column right floated" ng-if="recap.sales.length > 0">
+                                            <div class="ui segment message top attached">Sales</div>
+                                            <div class="ui attached segment salesParent">
+                                                <table class="ui celled striped table">
+                                                    <thead>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Count</th>
+                                                    <th>Total</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="sale in recap.sales">
+                                                        <td>{{sale.item.name}}</td>
+                                                        <td>{{sale.item.price | currency}}</td>
+                                                        <td class="countData">{{sale.item.count}}</td>
+                                                        <td>{{sale.item.price * sale.item.count | currency}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div ng-if="recap.comment" class="row">
+                                        <div class="ui grid">
+                                            <div class="row commentsRow">
+                                                <div class="twelve wide column">
+                                                    <h1 class="ui header">Comments</h1>
+                                                </div>
+                                            </div>
+
+                                            <div class="row commentsRow">
+                                                <div class="twelve wide column">
+                                                    <div class="ui message"> {{ recap.comment }} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

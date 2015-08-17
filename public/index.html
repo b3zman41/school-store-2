@@ -26,6 +26,10 @@
     <div class="ui fixed menu inverted navbar" ng-controller="NavController">
         <a class="brand item" ui-sref-active="active" ui-sref="home">School Store</a>
         <a class="item" ui-sref="daily" ui-sref-active="active">Daily</a>
+        <a class="item" ui-sref="salesRecap" ui-sref-active="active">Sales Recap</a>
+        <a class="item" ui-sref="itemRecap" ui-sref-active="active">Item Recap</a>
+        <a class="item" ui-sref="itemSettings" ui-sref-active="active">Item Settings</a>
+        <a class="item" ui-sref="studentSettings" ui-sref-active="active">Student Settings</a>
 
         <div class="right menu">
             <a class="item" ng-if="!AuthService.user" ng-cloak><button class="ui button" ng-click="showLoginDialog()">Login</button></a>
@@ -44,8 +48,12 @@
     <script src="/scripts/controllers/NewSaleDialogController.js"></script>
     <script src="/scripts/controllers/SalesRecapController.js"></script>
     <script src="/scripts/controllers/ConfirmDialogController.js"></script>
+    <script src="/scripts/controllers/ItemRecapController.js"></script>
+    <script src="/scripts/controllers/ItemSettingsController.js"></script>
+    <script src="/scripts/controllers/StudentSettingsController.js"></script>
     <script src="/scripts/services/DialogService.js"></script>
     <script src="/scripts/controllers/NewBlogPostDialogController.js"></script>
     <script src="/scripts/directives/SemanticDropdownDirective.js"></script>
+    <script src="/scripts/directives/EnterListenerDirective.js"></script>
 </body>
 </html>

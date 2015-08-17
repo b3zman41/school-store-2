@@ -9,10 +9,39 @@ use Illuminate\Http\Response;
 
 class StudentController extends Controller {
 
-	public function all()
+	public function getIndex()
 	{
-		return Student::all();
+		return Student::orderBy("name", "asc")->get();
 	}
+
+    public function postCreate(Request $request)
+    {
+        $validator = \Validator::make($request->all(), [
+            "name" =>  "required",
+            "period" =>  "required"
+        ]);
+
+        if($validator->passes())
+        {
+            return Student::create($request->all());
+        } else return response($validator->failed(), 400);
+    }
+
+    public function postEdit($id, Request $request)
+    {
+        $student = Student::find($id);
+
+        if(!is_null($student))
+        {
+            $student->fill($request->all());
+            $student->save();
+
+            return $student;
+        } else
+        {
+            return response("Student not found", 400);
+        }
+    }
 
 	public function periods()
 	{

@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'sqlite',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,10 +54,10 @@ return [
 
 		'derekmysql' => [
 			'driver'    => 'mysql',
-			'host'      => "50.87.225.228",
-			'database'  => "royaltz0_tBezmanSchoolStore",
-			'username'  => "royaltz0_tBezSch",
-			'password'  => "5%Kk!4k#V3v&mpmLA7",
+			'host'      => "mysql-init.thebez.biz",
+			'database'  => "init",
+			'username'  => "bezman41",
+			'password'  => "TXAurt6^3-ZpR8R=",
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

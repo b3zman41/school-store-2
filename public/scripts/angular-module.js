@@ -13,7 +13,11 @@ angular.module("school-store", [
     "DialogService",
     "ConfirmDialog",
     "BlogDialog",
-    "SemanticDropdown"
+    "SemanticDropdown",
+    "EnterListener",
+    "ItemRecap",
+    "ItemSettings",
+    "StudentSettings"
 ])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider)
     {
@@ -34,12 +38,36 @@ angular.module("school-store", [
                 url: "/salesrecap",
                 templateUrl: "/views/salesrecap.html",
                 controller: "SalesRecapController"
+            })
+            .state("itemRecap", {
+                url: "/itemrecap",
+                templateUrl: "/views/itemrecap.html",
+                controller: "ItemRecapController"
+            })
+            .state("itemSettings", {
+                url: "/itemsettings",
+                templateUrl: "/views/itemsettings.html",
+                controller: "ItemSettingsController"
+            })
+            .state("studentSettings", {
+                url: "/studentsettings",
+                templateUrl: "/views/studentsettings.html",
+                controller: "StudentSettingsController"
             });
     }])
 
 .filter("lDate", ["dateFilter", function(dateFilter) {
         return function (input, params) {
-            return dateFilter(new Date(input).getTime(), params);
+            if(typeof(input) === "object") return dateFilter(d, params);
+
+            if(input) {
+                var t = input.split(/[- :]/);
+
+// Apply each element to the Date function
+                var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
+
+                return dateFilter(d.getTime(), params);
+            }
         };
     }])
 

@@ -1,0 +1,23 @@
+.itemSettingsView {
+  margin-top: 100px;
+
+  .addButton {
+    max-width: 200px;
+    text-align: center !important;
+  }
+
+  .itemTable {
+    tr td {
+      font-size: 20px;
+      padding: 15px;
+    }
+  }
+
+  .actionsHeader {
+    text-align: center !important;
+  }
+
+  .center {
+    text-align: center !important;
+  }
+}

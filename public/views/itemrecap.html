@@ -1,0 +1,71 @@
+<div class="itemRecapView">
+    <div class="ui grid stackable">
+        <div class="row">
+            <div class="three wide column"></div>
+
+            <div class="three wide column">
+                <div class="ui input labeled">
+                    <label class="ui label">Month</label>
+                    <input type="number" ng-change="updateMonth(month)" ng-model="month" placeholder="Month"/>
+                </div>
+            </div>
+
+            <div class="one wide column"></div>
+
+            <div class="three wide column">
+                <div class="ui input labeled">
+                    <label class="ui label">Year</label>
+                    <input type="number" ng-change="updateYear(year)" ng-model="year" placeholder="Year"/>
+                </div>
+            </div>
+
+            <div class="one wide column"></div>
+
+            <div class="ui selection dropdown itemDropdown two wide column">
+                <i class="dropdown icon"></i>
+                <div class="default text">Order</div>
+                <div class="menu">
+                    <div class="item" ng-click="updateOrder('asc')">Ascending</div>
+                    <div class="item" ng-click="updateOrder('desc')">Descending</div>
+                </div>
+            </div>
+
+            <div class="three wide column"></div>
+        </div>
+    </div>
+
+    <div class="ui three column grid">
+        <div class="row">
+
+            <div class="column"></div>
+
+            <div class="column">
+                <div class="ui message dateMessage" ng-show="sales.length > 0 && minDate && maxDate">
+                    <div class="ui header">{{minDate | lDate : 'shortDate'}} - {{maxDate | lDate : 'shortDate'}}</div>
+                </div>
+            </div>
+
+            <div class="column"></div>
+        </div>
+    </div>
+
+    <table class="ui celled striped table salesTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Count</th>
+            <th>Sale</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="sale in sales">
+            <td>{{sale.item.name}}</td>
+            <td>{{sale.created_at | lDate : 'shortDate'}}</td>
+            <td>{{sale.count}}</td>
+            <td>{{sale.item.price * sale.count | currency}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

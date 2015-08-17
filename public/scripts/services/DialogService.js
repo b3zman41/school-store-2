@@ -29,7 +29,47 @@ angular.module("DialogService", [])
                 controller: "BlogDialogController",
                 targetEvent: $event
             });
-        }
+        };
+
+        DialogService.addNewItemDialog = function ($event) {
+            return $mdDialog.show({
+                templateUrl: "views/dialogs/addNewItemDialog.html",
+                controller: "NewItemDialogController",
+                targetEvent: $event
+            });
+        };
+
+        DialogService.editItemDialog = function (item, $event) {
+            return $mdDialog.show({
+                templateUrl: "views/dialogs/addNewItemDialog.html",
+                controller: "EditItemDialogController",
+                targetEvent: $event,
+
+                locals: {
+                    item: item
+                }
+            });
+        };
+
+        DialogService.addNewStudentDialog = function ($event) {
+            return $mdDialog.show({
+                templateUrl: "views/dialogs/addNewStudentDialog.html",
+                controller: "NewStudentDialogController",
+                targetEvent: $event
+            });
+        };
+
+        DialogService.editStudentDialog = function (student, $event) {
+            return $mdDialog.show({
+                templateUrl: "views/dialogs/addNewStudentDialog.html",
+                controller: "EditStudentDialogController",
+                targetEvent: $event,
+
+                locals: {
+                    student: student
+                }
+            });
+        };
 
 		return DialogService;
 	});

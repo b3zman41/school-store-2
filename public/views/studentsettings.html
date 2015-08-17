@@ -1,0 +1,39 @@
+<div class="studentSettingsView">
+
+    <div class="ui grid one column centered">
+        <div class="row">
+            <button ng-click="addStudent($event)" class="ui labeled icon button primary column addButton"><i class="add circle icon"></i> Add Student</button>
+        </div>
+    </div>
+
+    <div class="ui grid centered">
+        <div class="row">
+            <div class="three wide column"></div>
+            <div class="ten wide column">
+                <table class="ui celled striped table itemTable">
+                    <thead>
+                    <th><h1 class="ui header">Student</h1></th>
+                    <th><h1 class="ui header center">Period</h1></th>
+                    <th class="actionsHeader"><h1 class="ui header">Actions</h1></th>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="student in students">
+                        <td>{{student.name}}</td>
+                        <td class="center">{{student.period}}</td>
+                        <td class="actions">
+                            <div class="ui centered grid">
+                                <div class="row">
+                                    <button ng-click="editStudent(student, $event)" class="ui button">Edit</button>
+                                    <button ng-click="deleteStudent(student, $event)" class="ui button red">Delete</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="three wide column"></div>
+        </div>
+    </div>
+</div>

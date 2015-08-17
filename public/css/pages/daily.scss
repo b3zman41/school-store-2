@@ -22,6 +22,10 @@
     margin-top: 20px;
   }
 
+  .periodParent {
+    max-width: 400px;
+  }
+
   .student-input:not(:last-child) {
     display: block;
     margin-bottom: 10px;
@@ -45,6 +49,10 @@
   .sales  {
     .sale:not(:first-child) {
       margin-top: 20px;
+    }
+
+    .sale .three.wide.column {
+      padding-left: 0 !important;
     }
   }
 }
