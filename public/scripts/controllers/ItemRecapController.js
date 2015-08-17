@@ -3,7 +3,7 @@ angular.module("ItemRecap", [])
 
         var date = new Date();
 
-        $scope.month = date.getMonth();
+        $scope.month = date.getMonth() + 1;
         $scope.year = date.getFullYear();
         $scope.order = "desc";
 
@@ -36,6 +36,9 @@ angular.module("ItemRecap", [])
                             if(created.getTime() < $scope.minDate.getTime()) $scope.minDate = created;
                             if(created.getTime() > $scope.maxDate.getTime()) $scope.maxDate = created;
                         });
+
+                        console.log($scope.minDate);
+                        console.log($scope.maxDate);
                     }
                 }, function (error) {
                     console.log(error);

@@ -120,7 +120,6 @@ angular.module("daily", [])
         }
 
         $scope.submit = function () {
-
             var data = {};
             data.start_cash = $scope.startSum();
             data.end_cash = $scope.endSum();

@@ -2,6 +2,16 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.8",
-    "laravel-elixir": "*"
+    "laravel-elixir": "^1.0.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.7.13",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-connect-php": "0.0.5",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sass": "^2.0.3",
+    "gulp-sourcemaps": "^1.5.2"
   }
 }
