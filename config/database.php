@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => 'sqlite',
+	'default' => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ return [
 			'host'      => "localhost",
 			'database'  => "schoolstore",
 			'username'  => "root",
-			'password'  => "",
+			'password'  => "somepass",
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
