@@ -65,7 +65,7 @@
                     <div class="ui centered grid">
                         <div class="row animate-repeat" ng-repeat="recap in recaps" ng-if="recap.students.length > 0 || recap.sales.length > 0">
                             <div class="recap ten wide column ui grid">
-                                <div class="ui top attached segment message row">
+                                <div class="ui top attached segment message row header-row">
                                     <h2 class="ui header left floated six wide column">{{recap.created_at | lDate : 'short'}}</h2>
                                     <h2 class="ui header three wide column">Period {{recap.period}}</h2>
                                     <button ng-click="removeRecap(recap, $event)" class="ui button red labeled icon right floated"><i class="ui remove circle icon"></i> Remove</button>
@@ -110,18 +110,8 @@
                                     </div>
 
                                     <div ng-if="recap.comment" class="row">
-                                        <div class="ui grid">
-                                            <div class="row commentsRow">
-                                                <div class="twelve wide column">
-                                                    <h1 class="ui header">Comments</h1>
-                                                </div>
-                                            </div>
-
-                                            <div class="row commentsRow">
-                                                <div class="twelve wide column">
-                                                    <div class="ui message"> {{ recap.comment }} </div>
-                                                </div>
-                                            </div>
+                                        <div class="sixteen wide column">
+                                            <div class="ui message"> {{ recap.comment }} </div>
                                         </div>
                                     </div>
                                 </div>
