@@ -25,7 +25,7 @@ gulp.task('dist', function () {
         .pipe(assets)
         .pipe(assets.restore())
         .pipe(useref())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('./public/'));
 });
 
  gulp.task('styles', function () {
