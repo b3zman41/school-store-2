@@ -7,6 +7,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var minifyCss = require('gulp-minify-css');
 var useref = require('gulp-useref');
+var gulpif = require('gulp-if');
+var uglify = require('gulp-uglify');
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -23,6 +25,8 @@ gulp.task('dist', function () {
 
     return gulp.src('./public/index.html')
         .pipe(assets)
+	.pipe(gulpif('*.js', uglify())
+	.pipe(gulpif('*.css', minifyCss()))
         .pipe(assets.restore())
         .pipe(useref())
         .pipe(gulp.dest('./public/'));
