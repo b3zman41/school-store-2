@@ -25,6 +25,8 @@ angular.module("SalesRecap", [])
             })
                 .then(function (success) {
                     $scope.recaps = success.data;
+
+                    console.log($scope.recaps);
                 }, function (error) {
                     console.log(error);
                 });

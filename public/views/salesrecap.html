@@ -59,59 +59,61 @@
             <div class="two wide column"></div>
         </div>
 
-        <div class="ui grid">
-            <div class="row">
-                <div class="recaps sixteen wide column">
-                    <div class="ui centered grid">
-                        <div class="row animate-repeat" ng-repeat="recap in recaps" ng-if="recap.students.length > 0 || recap.sales.length > 0">
-                            <div class="recap ten wide column ui grid">
-                                <div class="ui top attached segment message row header-row">
-                                    <h2 class="ui header left floated six wide column">{{recap.created_at | lDate : 'short'}}</h2>
-                                    <h2 class="ui header three wide column">Period {{recap.period}}</h2>
-                                    <button ng-click="removeRecap(recap, $event)" class="ui button red labeled icon right floated"><i class="ui remove circle icon"></i> Remove</button>
-                                </div>
-                                <div class="ui attached segment dataSegment ui grid">
-                                    <div class="row">
-                                        <div class="students six wide column left floated">
-                                            <div class="ui segment message top attached">Present Students</div>
-                                            <div class="ui attached segment" ng-repeat="student in recap.students" ng-bind="student.student.name"></div>
-                                        </div>
+        <div class="row recap-row">
+            <div class="ui grid">
+                <div class="row">
+                    <div class="recaps sixteen wide column">
+                        <div class="ui centered grid">
+                            <div class="row animate-repeat" ng-repeat="recap in recaps" ng-if="recap.students.length > 0 || recap.sales.length > 0">
+                                <div class="recap ten wide column ui grid">
+                                    <div class="ui top attached segment message row header-row">
+                                        <h2 class="ui header left floated six wide column">{{recap.created_at | lDate : 'short'}}</h2>
+                                        <h2 class="ui header three wide column">Period {{recap.period}}</h2>
+                                        <button ng-click="removeRecap(recap, $event)" class="ui button red labeled icon right floated"><i class="ui remove circle icon"></i> Remove</button>
+                                    </div>
+                                    <div class="ui attached segment dataSegment ui grid">
+                                        <div class="row">
+                                            <div class="students six wide column left floated">
+                                                <div class="ui segment message top attached">Present Students</div>
+                                                <div class="ui attached segment" ng-repeat="student in recap.students" ng-bind="student.student.name"></div>
+                                            </div>
 
-                                        <div class="sales ten wide column right floated" ng-if="recap.sales.length > 0">
-                                            <div class="ui segment message top attached">
-                                                <div class="ui grid sales-grid">
-                                                    <div class="eight wide column">Sales</div>
-                                                    <div class="eight wide column right aligned">
-                                                        <strong>{{ recap.start_cash + recap.start_check | currency }}</strong>
-                                                        <i class="arrow right icon"></i>
-                                                        <strong>{{ recap.end_cash + recap.end_check  | currency }}</strong>
+                                            <div class="sales ten wide column right floated" ng-if="recap.sales.length > 0">
+                                                <div class="ui segment message top attached">
+                                                    <div class="ui grid sales-grid">
+                                                        <div class="eight wide column">Sales</div>
+                                                        <div class="eight wide column right aligned">
+                                                            <strong>{{ recap.start_cash + recap.start_check | currency }}</strong>
+                                                            <i class="arrow right icon"></i>
+                                                            <strong>{{ recap.end_cash + recap.end_check  | currency }}</strong>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="ui attached segment salesParent">
-                                                <table class="ui celled striped table">
-                                                    <thead>
-                                                    <th>Name</th>
-                                                    <th>Price</th>
-                                                    <th>Count</th>
-                                                    <th>Total</th>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr ng-repeat="sale in recap.sales">
-                                                        <td>{{sale.item.name}}</td>
-                                                        <td>{{sale.item.price | currency}}</td>
-                                                        <td class="countData">{{sale.item.count}}</td>
-                                                        <td>{{sale.item.price * sale.item.count | currency}}</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                                <div class="ui attached segment salesParent">
+                                                    <table class="ui celled striped table">
+                                                        <thead>
+                                                        <th>Name</th>
+                                                        <th>Price</th>
+                                                        <th>Count</th>
+                                                        <th>Total</th>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr ng-repeat="sale in recap.sales">
+                                                            <td>{{sale.item.name}}</td>
+                                                            <td>{{sale.item.price | currency}}</td>
+                                                            <td class="countData">{{sale.item.count}}</td>
+                                                            <td>{{sale.item.price * sale.item.count | currency}}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div ng-if="recap.comment" class="row">
-                                        <div class="sixteen wide column">
-                                            <div class="ui message"> {{ recap.comment }} </div>
+                                        <div ng-if="recap.comment" class="row">
+                                            <div class="sixteen wide column">
+                                                <div class="ui message"> {{ recap.comment }} </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
