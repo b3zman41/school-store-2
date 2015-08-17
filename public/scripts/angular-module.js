@@ -7,6 +7,7 @@ angular.module("school-store", [
     "home",
     "nav",
     "school-store-service",
+    "blog-service",
     "daily",
     "NewSaleDialog",
     "SalesRecap",

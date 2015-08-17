@@ -6,54 +6,59 @@
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
+    <!-- build:css all.css -->
     <link rel="stylesheet" href="/css/main.css">
 
     <link rel="stylesheet" href="/bower_components/semantic/dist/semantic.min.css">
 
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <!-- endbuild -->
 
-
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-aria/angular-aria.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="/bower_components/angular-material/angular-material.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/bower_components/semantic/dist/semantic.min.js"></script>
 </head>
 
 <body>
-    <div class="ui fixed menu inverted navbar" ng-controller="NavController">
-        <a class="brand item" ui-sref-active="active" ui-sref="home">School Store</a>
-        <a class="item" ng-show="AuthService.user" ui-sref="daily" ui-sref-active="active">Daily</a>
-        <a class="item" ng-show="AuthService.isAdmin()" ui-sref="salesRecap" ui-sref-active="active">Sales Recap</a>
-        <a class="item" ng-show="AuthService.isAdmin()" ui-sref="itemRecap" ui-sref-active="active">Item Recap</a>
-        <a class="item" ng-show="AuthService.isAdmin()" ui-sref="itemSettings" ui-sref-active="active">Item Settings</a>
-        <a class="item" ng-show="AuthService.isAdmin()" ui-sref="studentSettings" ui-sref-active="active">Student Settings</a>
+<div class="ui fixed menu inverted navbar" ng-controller="NavController">
+    <a class="brand item" ui-sref-active="active" ui-sref="home">School Store</a>
+    <a class="item" ng-show="AuthService.user" ui-sref="daily" ui-sref-active="active">Daily</a>
+    <a class="item" ng-show="AuthService.isAdmin()" ui-sref="salesRecap" ui-sref-active="active">Sales Recap</a>
+    <a class="item" ng-show="AuthService.isAdmin()" ui-sref="itemRecap" ui-sref-active="active">Item Recap</a>
+    <a class="item" ng-show="AuthService.isAdmin()" ui-sref="itemSettings" ui-sref-active="active">Item Settings</a>
+    <a class="item" ng-show="AuthService.isAdmin()" ui-sref="studentSettings" ui-sref-active="active">Student Settings</a>
 
-        <div class="right menu">
-            <a class="item" ng-if="!AuthService.user" ng-cloak><button class="ui button" ng-click="showLoginDialog()">Login</button></a>
-            <a class="item" ng-if="AuthService.user" ng-click="logout()" ng-cloak><button class="ui red button">Logout</button></a>
-        </div>
+    <div class="right menu">
+        <a class="item" ng-if="!AuthService.user" ng-cloak><button class="ui button" ng-click="showLoginDialog()">Login</button></a>
+        <a class="item" ng-if="AuthService.user" ng-click="logout()" ng-cloak><button class="ui red button">Logout</button></a>
     </div>
+</div>
 
-    <div ui-view></div>
+<div ui-view></div>
 
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="/scripts/angular-module.js"></script>
-    <script src="/scripts/services/AuthService.js"></script>
-    <script src="/scripts/controllers/HomeController.js"></script>
-    <script src="/scripts/controllers/NavController.js"></script>
-    <script src="/scripts/controllers/DailyController.js"></script>
-    <script src="/scripts/controllers/NewSaleDialogController.js"></script>
-    <script src="/scripts/controllers/SalesRecapController.js"></script>
-    <script src="/scripts/controllers/ConfirmDialogController.js"></script>
-    <script src="/scripts/controllers/ItemRecapController.js"></script>
-    <script src="/scripts/controllers/ItemSettingsController.js"></script>
-    <script src="/scripts/controllers/StudentSettingsController.js"></script>
-    <script src="/scripts/services/DialogService.js"></script>
-    <script src="/scripts/controllers/NewBlogPostDialogController.js"></script>
-    <script src="/scripts/directives/SemanticDropdownDirective.js"></script>
-    <script src="/scripts/directives/EnterListenerDirective.js"></script>
+<!-- build:js all.js -->
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-aria/angular-aria.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-material/angular-material.js"></script>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/semantic/dist/semantic.min.js"></script>
+
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/scripts/angular-module.js"></script>
+<script src="/scripts/services/AuthService.js"></script>
+<script src="/scripts/services/BlogService.js"></script>
+<script src="/scripts/controllers/HomeController.js"></script>
+<script src="/scripts/controllers/NavController.js"></script>
+<script src="/scripts/controllers/DailyController.js"></script>
+<script src="/scripts/controllers/NewSaleDialogController.js"></script>
+<script src="/scripts/controllers/SalesRecapController.js"></script>
+<script src="/scripts/controllers/ConfirmDialogController.js"></script>
+<script src="/scripts/controllers/ItemRecapController.js"></script>
+<script src="/scripts/controllers/ItemSettingsController.js"></script>
+<script src="/scripts/controllers/StudentSettingsController.js"></script>
+<script src="/scripts/services/DialogService.js"></script>
+<script src="/scripts/controllers/NewBlogPostDialogController.js"></script>
+<script src="/scripts/directives/SemanticDropdownDirective.js"></script>
+<script src="/scripts/directives/EnterListenerDirective.js"></script>
+<!-- endbuild -->
 </body>
 </html>

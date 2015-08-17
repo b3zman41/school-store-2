@@ -1,6 +1,21 @@
 .homeView {
   .posts {
-    margin-top: 50px !important;
+    margin-top: 75px !important;
+
+    .post {
+      margin-top: 50px;
+
+      .post__header__right {
+        & > * {
+          display: inline-block;
+        }
+
+        .remove.circle.icon {
+          cursor: pointer;
+          color: red;
+        }
+      }
+    }
 
     .ui.content {
       font-size: 14px;

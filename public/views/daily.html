@@ -481,58 +481,58 @@
             <div class="fourteen wide column ui divider"></div>
         </div>
 
-        <div class="ui stackable grid">
-            <div class="row">
-                <button class="ui labeled button primary three wide column" ng-click="soldItems.push({})">
-                    <i class="add square icon"></i>
-                    New Sale
-                </button>
-            </div>
+        <div class="row">
+            <div class="ui sixteen column grid">
+                <div class="row">
+                    <button class="ui labeled button primary three wide column" ng-click="soldItems.push({})">
+                        <i class="add square icon"></i>
+                        New Sale
+                    </button>
+                </div>
 
-            <div class="row sales">
-                <div class="sixteen wide column">
-                    <div class="sale" ng-repeat="sale in soldItems">
-                        <div class="ui grid">
-                            <div class="row">
-                                <div class="three wide column">
-                                    <div class="ui selection dropdown itemDropdown">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Sold Item</div>
-                                        <div class="menu">
-                                            <div class="item" ng-click="sale.item = item" ng-repeat="item in availableItems">{{item.name}}</div>
+                <div class="row sales">
+                    <div class="sixteen wide column">
+                        <div class="sale" ng-repeat="sale in soldItems">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="three wide column">
+                                        <div class="ui selection dropdown itemDropdown">
+                                            <i class="dropdown icon"></i>
+                                            <div class="default text">Sold Item</div>
+                                            <div class="menu">
+                                                <div class="item" ng-click="sale.item = item" ng-repeat="item in availableItems">{{item.name}}</div>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div class="two wide column"></div>
+
+                                    <div class="ui input two wide column">
+                                        <input type="number" ng-model="sale.count" ng-init="sale.count = 1" ng-change="checkDecimal(sale)" min="0" placeholder="Count">
+                                    </div>
+
+                                    <div class="one wide column"></div>
+
+                                    <div class="ui message two wide column" ng-bind="sale.item.price && sale.count ? sale.item.price * sale.count : 0 | currency"></div>
+
+                                    <div class="two wide column"></div>
+
+                                    <button class="ui red button three wide column labeled icon removeButton" ng-click="soldItems.splice($index, 1)"><i class="remove circle icon"></i> Remove</button>
                                 </div>
-
-                                <div class="two wide column"></div>
-
-                                <div class="ui input two wide column">
-                                    <input type="number" ng-model="sale.count" ng-init="sale.count = 1" ng-change="checkDecimal(sale)" min="0" placeholder="Count">
-                                </div>
-
-                                <div class="one wide column"></div>
-
-                                <div class="ui message two wide column" ng-bind="sale.item.price && sale.count ? sale.item.price * sale.count : 0 | currency"></div>
-
-                                <div class="two wide column"></div>
-
-                                <button class="ui red button three wide column labeled icon removeButton" ng-click="soldItems.splice($index, 1)"><i class="remove circle icon"></i> Remove</button>
                             </div>
-                        </div>
 
-                        <div class="ui divider" ng-if="!$last"></div>
+                            <div class="ui divider" ng-if="!$last"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="ui grid">
-            <div class="row">
-                <div class="sixteen column wide ui form">
-                    <div class="field">
-                        <label for="comment">Comment</label>
-                        <textarea ng-model="daily.comment" name="comment"></textarea>
-                    </div>
+        <div class="row">
+            <div class="sixteen column wide ui form">
+                <div class="field">
+                    <label for="comment">Comment</label>
+                    <textarea ng-model="daily.comment" name="comment"></textarea>
                 </div>
             </div>
         </div>

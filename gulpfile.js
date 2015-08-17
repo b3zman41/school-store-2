@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var minifyCss = require('gulp-minify-css');
+var useref = require('gulp-useref');
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -16,6 +17,16 @@ var minifyCss = require('gulp-minify-css');
  | file for our application, as well as publishing vendor resources.
  |
  */
+
+gulp.task('dist', function () {
+    var assets = useref.assets();
+
+    return gulp.src('./public/index.html')
+        .pipe(assets)
+        .pipe(assets.restore())
+        .pipe(useref())
+        .pipe(gulp.dest('dist'));
+});
 
  gulp.task('styles', function () {
         return gulp.src('./public/css/main.scss')

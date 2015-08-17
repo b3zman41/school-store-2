@@ -1,7 +1,7 @@
 /**
  * Created by Terence on 3/21/2015.
  */
-angular.module("school-store-service", [])
+angular.module("blog-service", [])
     .factory("BlogService", ["$http", function ($http) {
         var BlogService = {};
 
@@ -11,7 +11,14 @@ angular.module("school-store-service", [])
                 url: "/blog/post",
                 params: {text: text}
             }).then(success, error);
-        }
+        };
+
+        BlogService.delete = function (post) {
+            return $http({
+                method: "DELETE",
+                url: "/blog/" + post.id
+            })
+        };
 
         return BlogService;
     }]);

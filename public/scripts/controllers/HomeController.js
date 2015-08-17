@@ -2,7 +2,7 @@
  * Created by Terence on 3/20/2015.
  */
  angular.module("home", ["ngMaterial"])
- .controller("HomeController", ["$scope", "$mdDialog", "AuthService", "$mdToast", "$http", "DialogService", function($scope, $mdDialog, AuthService, $mdToast, $http, DialogService){
+ .controller("HomeController", ["$scope", "$mdDialog", "AuthService", "$mdToast", "$http", "DialogService", "BlogService", "$timeout", function($scope, $mdDialog, AuthService, $mdToast, $http, DialogService, BlogService, $timeout){
     $scope.AuthService = AuthService;
     $scope.DialogService = DialogService;
 
@@ -46,6 +46,22 @@
         }, function() {
         });
     };
+
+         $scope.removePost = function (post, $event) {
+            DialogService.showConfirmDialog("Are you sure?", "Would you like to remove this blog post?", $event)
+                .then(function () {
+                    BlogService.delete(post)
+                        .then(function () {
+                            $mdToast.show($mdToast.simple().content("Successfully deleted blog post!"));
+
+                            $timeout(function () {
+                                location.reload();
+                            }, 1500);
+                        }, function () {
+                            $mdToast.show($mdToast.simple().content("Could not delete blog post"));
+                        });
+                }, angular.noop);
+         };
 
     $scope.updateBlog();
 }]);

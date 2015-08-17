@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\BlogRequest;
@@ -12,7 +13,7 @@ class BlogController extends Controller {
 
     public function __construct()
     {
-        $this->middleware("auth", ["only" => "post"]);
+        $this->middleware("auth", ["except" => "all"]);
     }
 
     public function all()
@@ -42,11 +43,15 @@ class BlogController extends Controller {
         }
     }
 
-    public function deleteBlogPost($id)
+    public function deleteBlogPost($id, Request $request)
     {
         $post = Blog::find($id);
-        
-        $post->delete();
+
+        $user = AuthController::userForRequest($request);
+
+        if($user->id == $post->account_id) {
+            $post->delete();
+        }
 
         return $post;
     }

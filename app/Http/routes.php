@@ -25,7 +25,7 @@ Route::get('/auth', 'Auth\AuthController@index');
 //Daily
 Route::get("/blog/", 'BlogController@all');
 Route::get("/blog/post", 'BlogController@post');
-Route::get("/blog/{id}/delete", "BlogController@deleteBlogPost");
+Route::delete("/blog/{id}", "BlogController@deleteBlogPost");
 
 //Daily
 Route::get("/daily", ["middleware" => "admin", "uses" => "DailyController@all"]);
