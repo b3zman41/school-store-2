@@ -60,6 +60,9 @@
     padding-bottom: 0 !important; }
   .salesRecapView .commentsRow {
     text-align: center !important; }
+  .salesRecapView .sales-grid .column {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important; }
 
 .itemRecapView {
   margin-top: 50px;

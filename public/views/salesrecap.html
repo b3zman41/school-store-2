@@ -78,7 +78,16 @@
                                         </div>
 
                                         <div class="sales ten wide column right floated" ng-if="recap.sales.length > 0">
-                                            <div class="ui segment message top attached">Sales</div>
+                                            <div class="ui segment message top attached">
+                                                <div class="ui grid sales-grid">
+                                                    <div class="eight wide column">Sales</div>
+                                                    <div class="eight wide column right aligned">
+                                                        <strong>{{ recap.start_cash + recap.start_check | currency }}</strong>
+                                                        <i class="arrow right icon"></i>
+                                                        <strong>{{ recap.end_cash + recap.end_check  | currency }}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="ui attached segment salesParent">
                                                 <table class="ui celled striped table">
                                                     <thead>
