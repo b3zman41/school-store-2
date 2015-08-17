@@ -39,7 +39,7 @@ angular.module("SalesRecap", [])
                     })
                         .then(function (success) {
                             $scope.updateRecap();
-                        }, angular.noop)
+                        }, console.log)
                 }, function () {
 
                 });

@@ -22,7 +22,7 @@ class DailyController extends Controller {
         $year = $request->input("year");
         $order = $request->input("order");
 
-        $query = Daily::with("sales")->with("students")->take(5);
+        $query = Daily::with("sales")->with("students")->take(30);
 
         if(!is_null($period))
         {
