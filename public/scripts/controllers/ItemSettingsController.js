@@ -40,10 +40,8 @@ angular.module("ItemSettings", [])
                         .then(function (success) {
                             location.reload();
                         }, angular.noop);
-                }, function () {
-                    location.reload();
-                });
-        }
+                }, angular.noop);
+        };
 
         $scope.deleteItem = function (item, $event) {
             DialogService.showConfirmDialog("Confirmation", "Are you sure you would like to delete " +  item.name + "?", $event)
