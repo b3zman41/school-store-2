@@ -1,5 +1,5 @@
 angular.module("daily", [])
-    .controller("DailyController", ["$scope", "$http", "$mdDialog", "$mdToast", "$filter", function ($scope, $http, $mdDialog, $mdToast, $filter) {
+    .controller("DailyController", ["$scope", "$http", "$mdDialog", "$mdToast", "$filter", "$timeout", function ($scope, $http, $mdDialog, $mdToast, $filter, $timeout) {
 
         $scope.presentStudents = [];
         $scope.daily = {
@@ -120,6 +120,7 @@ angular.module("daily", [])
         }
 
         $scope.submit = function () {
+
             var data = {};
             data.start_cash = $scope.startSum();
             data.end_cash = $scope.endSum();
@@ -188,9 +189,13 @@ angular.module("daily", [])
                     headers: {'Content-Type': 'application/json'}
                 })
                     .then(function (success) {
-                        console.log(success);
+                        $mdToast.show($mdToast.simple().content("Successfully submitted daily form!"));
+
+                        $timeout(function () {
+                            location.href = "/";
+                        }, 3000);
                     }, function (error) {
-                        console.log(error);
+                        $mdToast.show($mdToast.simple().content("Something went wrong, alert Terence immediately!"));
                     });
             } else
             {

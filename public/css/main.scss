@@ -16,3 +16,9 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+
+md-toast {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+}
