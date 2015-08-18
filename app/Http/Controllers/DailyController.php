@@ -49,8 +49,6 @@ class DailyController extends Controller {
 
     public function create(Request $request)
     {
-        \Log::info("CREATE");
-
         $validation = \Validator::make($request->all(), [
             "period" => "required|min:0|max:10",
             "start_cash" => "required",
