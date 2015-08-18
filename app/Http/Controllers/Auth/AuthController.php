@@ -26,8 +26,6 @@ class AuthController extends Controller {
 
 	public function login(Request $request)
     {
-        Log::info($request->all());
-
         if ($request->has("username", "password"))
         {
             $username = $request->input("username");
