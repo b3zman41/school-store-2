@@ -36,7 +36,13 @@ angular.module("StudentSettings", [])
         };
 
         $scope.deleteStudent = function (student, $event) {
-
+            DialogService.showConfirmDialog("Confirmation", "Are you sure you would like to remove " + student.name + "?", $event)
+                .then(function (success) {
+                    $http.post('/student/' + student.id + '/delete')
+                        .then(function () {
+                            location.reload();
+                        }, angular.noop);
+                }, angular.noop);
         }
 
     })

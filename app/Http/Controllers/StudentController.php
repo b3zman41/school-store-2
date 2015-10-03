@@ -9,7 +9,12 @@ use Illuminate\Http\Response;
 
 class StudentController extends Controller {
 
-	public function getIndex()
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['postDelete', 'postCreate',]]);
+    }
+
+    public function getIndex()
 	{
 		return Student::orderBy("name", "asc")->get();
 	}
@@ -41,6 +46,15 @@ class StudentController extends Controller {
         {
             return response("Student not found", 400);
         }
+    }
+
+    public function postDelete($id)
+    {
+        $student = Student::find($id);
+
+        $student->delete();
+
+        return $student;
     }
 
 	public function periods()

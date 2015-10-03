@@ -36,6 +36,7 @@ Route::post("/daily/create", ["middleware" => "auth", "uses" => "DailyController
 
 //Student
 Route::post("/student/{id}/edit", "StudentController@postEdit");
+Route::post("/student/{id}/delete", "StudentController@postDelete");
 Route::get("/student/periods", "StudentController@periods");
 Route::controller("student", "StudentController");
 
