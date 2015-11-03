@@ -19,7 +19,7 @@
 
     </div>
     <div class="actions">
-        <button class="ui button primary" ng-click="$mdDialog.hide(student)" ng-disabled="!student.name || !student.period">Okay</button>
+        <button class="ui button primary" ng-click="$mdDialog.hide(student)" ng-disabled="!student.name || (student.period < 0 || student.period > 10)">Okay</button>
         <button class="ui red button" ng-click="$mdDialog.cancel()">Cancel</button>
     </div>
 </md-dialog>
