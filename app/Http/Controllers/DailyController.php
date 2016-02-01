@@ -78,6 +78,7 @@ class DailyController extends Controller {
                     array_push($sales, $savedSale);
 
                     $savedSale->item["count"] -= $savedSale["count"];
+                    $savedSale->item->save();
                     $savedSale->save();
                 }
             }
