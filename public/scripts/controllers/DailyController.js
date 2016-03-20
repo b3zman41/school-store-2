@@ -20,7 +20,7 @@ angular.module("daily", [])
             nickels: 0.05,
             dimes: 0.1,
             quarters: 0.25,
-            check: 1.0
+            checks: 1.0
         };
 
         $scope.soldItems = [];
@@ -87,7 +87,7 @@ angular.module("daily", [])
                 returnValue += $scope.daily.start[key] * $scope.scaleOrder[key];
             }
 
-            return returnValue;
+            return returnValue - $scope.daily.values.start.checks;
         };
 
         $scope.endSum = function () {
@@ -97,7 +97,7 @@ angular.module("daily", [])
                 returnValue += $scope.daily.end[key] * $scope.scaleOrder[key];
             }
 
-            return returnValue;
+            return returnValue - $scope.daily.values.end.checks;
         };
 
         $scope.arrayLength = function (length) {
@@ -124,8 +124,8 @@ angular.module("daily", [])
             data.start_cash = $scope.startSum();
             data.end_cash = $scope.endSum();
             data.period = $scope.selectedPeriod;
-            data.start_check = 0;
-            data.end_check = 0;
+            data.start_check = $scope.daily.values.start.checks;
+            data.end_check = $scope.daily.values.end.checks;
             data.comment = $scope.daily.comment;
 
             $scope.soldItems = $scope.soldItems.filter(function (a) {

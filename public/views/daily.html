@@ -9,7 +9,9 @@
                                 <i class="dropdown icon"></i>
                                 <div class="default text">Period</div>
                                 <div class="menu">
-                                    <div class="item" ng-click="periodClick(i)" ng-repeat="i in arrayLength(11)">{{$index}}</div>
+                                    <div class="item" ng-click="periodClick(i)" ng-repeat="i in arrayLength(11)">
+                                        {{$index}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +50,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#1s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.ones" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.ones" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -71,7 +74,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#5s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.fives" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.fives" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -94,7 +98,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#10s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.tens" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.tens" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -117,7 +122,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#20s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.twenties" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.twenties" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -146,7 +152,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Pennies</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.pennies" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.pennies" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -169,7 +176,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Nickels</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.nickels" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.nickels" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -192,7 +200,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Dimes</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.dimes" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.dimes" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -215,7 +224,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Quarters</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.start.quarters" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.quarters" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -224,6 +234,30 @@
                                     <div class="six wide column right floated left aligned">
                                         <div class="ui message" ng-init="daily.values.start['quarters'] = 0">
                                             {{daily.values.start['quarters'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="before__check money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="ten wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">Checks</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.start.checks" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.start['checks'] = 0">
+                                            {{daily.values.start['checks'] | currency}}
                                         </div>
                                     </div>
                                 </div>
@@ -273,7 +307,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#1s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.ones" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.ones" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -296,7 +331,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#5s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.fives" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.fives" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -319,7 +355,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#10s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.tens" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.tens" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -342,7 +379,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#20s</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.twenties" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.twenties" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -371,7 +409,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Pennies</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.pennies" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.pennies" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -394,7 +433,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Nickels</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.nickels" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.nickels" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -417,7 +457,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Dimes</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.dimes" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.dimes" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -440,7 +481,8 @@
                                             <div class="row">
                                                 <strong class="money-label three wide column">#Quarters</strong>
                                                 <div class="ui input ten wide column">
-                                                    <input type="number" class="money-input-field" ng-model="daily.end.quarters" ng-change="updateValues()">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.quarters" ng-change="updateValues()">
                                                 </div>
                                             </div>
                                         </div>
@@ -454,6 +496,31 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="after__check money-input">
+                            <div class="ui grid">
+                                <div class="row">
+                                    <div class="ten wide column left aligned">
+                                        <div class="ui grid">
+                                            <div class="row">
+                                                <strong class="money-label three wide column">Checks</strong>
+                                                <div class="ui input ten wide column">
+                                                    <input type="number" class="money-input-field"
+                                                           ng-model="daily.end.checks" ng-change="updateValues()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column right floated left aligned">
+                                        <div class="ui message" ng-init="daily.values.end['checks'] = 0">
+                                            {{daily.values.end['checks'] | currency}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
 
@@ -500,7 +567,9 @@
                                             <i class="dropdown icon"></i>
                                             <div class="default text">Sold Item</div>
                                             <div class="menu">
-                                                <div class="item" ng-click="sale.item = item" ng-repeat="item in availableItems">{{item.name}}</div>
+                                                <div class="item" ng-click="sale.item = item"
+                                                     ng-repeat="item in availableItems">{{item.name}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -508,16 +577,21 @@
                                     <div class="two wide column"></div>
 
                                     <div class="ui input two wide column">
-                                        <input type="number" ng-model="sale.count" ng-init="sale.count = 1" ng-change="checkDecimal(sale)" min="0" placeholder="Count">
+                                        <input type="number" ng-model="sale.count" ng-init="sale.count = 1"
+                                               ng-change="checkDecimal(sale)" min="0" placeholder="Count">
                                     </div>
 
                                     <div class="one wide column"></div>
 
-                                    <div class="ui message two wide column" ng-bind="sale.item.price && sale.count ? sale.item.price * sale.count : 0 | currency"></div>
+                                    <div class="ui message two wide column"
+                                         ng-bind="sale.item.price && sale.count ? sale.item.price * sale.count : 0 | currency"></div>
 
                                     <div class="two wide column"></div>
 
-                                    <button class="ui red button three wide column labeled icon removeButton" ng-click="soldItems.splice($index, 1)"><i class="remove circle icon"></i> Remove</button>
+                                    <button class="ui red button three wide column labeled icon removeButton"
+                                            ng-click="soldItems.splice($index, 1)"><i class="remove circle icon"></i>
+                                        Remove
+                                    </button>
                                 </div>
                             </div>
 
