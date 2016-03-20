@@ -9,6 +9,10 @@
 @import "dialogs/addNewItemDialog";
 @import "dialogs/addNewStudentDialog";
 
+body {
+  top: 0px !important;
+}
+
 .ui.modal {
 	top: 25% !important;
 }

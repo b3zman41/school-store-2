@@ -10,13 +10,11 @@ use Illuminate\Http\Response;
 
 class DailyController extends Controller {
 
-    public function all()
-    {
+    public function all() {
         return Daily::with("sales")->with("students")->orderBy("created_at", "desc")->get();
     }
 
-    public function getQuery(Request $request)
-    {
+    public function getQuery(Request $request) {
         $period = $request->input("period");
         $month = $request->input("month");
         $year = $request->input("year");
@@ -24,31 +22,26 @@ class DailyController extends Controller {
 
         $query = Daily::with("sales")->with("students")->take(30);
 
-        if(!is_null($period))
-        {
+        if (!is_null($period)) {
             $query->where("period", $period);
         }
 
-        if(!is_null($month))
-        {
+        if (!is_null($month)) {
             $query->where(\DB::raw("MONTH(created_at)"), "=", $month);
         }
 
-        if(!is_null($year))
-        {
+        if (!is_null($year)) {
             $query->where(\DB::raw("YEAR(created_at)"), "=", $year);
         }
 
-        if(!is_null($order))
-        {
+        if (!is_null($order)) {
             $query->orderBy("created_at", $order);
         }
 
         return $query->get();
     }
 
-    public function create(Request $request)
-    {
+    public function create(Request $request) {
         $validation = \Validator::make($request->all(), [
             "period" => "required|min:0|max:10",
             "start_cash" => "required",
@@ -58,11 +51,9 @@ class DailyController extends Controller {
             "presentStudents" => "required"
         ]);
 
-        if($validation->fails())
-        {
+        if ($validation->fails()) {
             return new Response($validation->errors(), 400);
-        } else
-        {
+        } else {
             $dailyArray = $request->all();
             $daily = Daily::create($dailyArray);
 
@@ -70,24 +61,20 @@ class DailyController extends Controller {
             $students = array();
 
             //Sales Iteration
-            if(!is_null($dailyArray["sales"]))
-            {
-                foreach ($dailyArray["sales"] as $sale)
-                {
+            if (!is_null($dailyArray["sales"])) {
+                foreach ($dailyArray["sales"] as $sale) {
                     $savedSale = Sale::create($sale);
                     array_push($sales, $savedSale);
 
-                    $savedSale->item["count"] -= $savedSale["count"];
+                    $savedSale->item->decrement('count', $savedSale['count']);
                     $savedSale->item->save();
                     $savedSale->save();
                 }
             }
 
             //Present Students Iteration
-            if(!is_null($dailyArray["presentStudents"]))
-            {
-                foreach ($dailyArray["presentStudents"] as $student)
-                {
+            if (!is_null($dailyArray["presentStudents"])) {
+                foreach ($dailyArray["presentStudents"] as $student) {
                     array_push($students, DailyPerson::create(["student_id" => $student["id"]]));
                 }
             }
@@ -102,18 +89,15 @@ class DailyController extends Controller {
         }
     }
 
-    public function get($id = null)
-    {
-        if(is_null($id))
-        {
+    public function get($id = null) {
+        if (is_null($id)) {
             return Daily::with("sales")->with("students")->orderBy("created_at", "desc")->get();
         }
 
         return Daily::find($id);
     }
 
-    public function delete($id)
-    {
+    public function delete($id) {
         $daily = Daily::find($id);
 
         $daily->delete();

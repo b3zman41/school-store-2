@@ -101,8 +101,8 @@
                                                         <tr ng-repeat="sale in recap.sales">
                                                             <td>{{sale.item.name}}</td>
                                                             <td>{{sale.item.price | currency}}</td>
-                                                            <td class="countData">{{sale.item.count}}</td>
-                                                            <td>{{sale.item.price * sale.item.count | currency}}</td>
+                                                            <td class="countData">{{sale.count}}</td>
+                                                            <td>{{sale.item.price * sale.count | currency}}</td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

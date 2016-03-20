@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
     <meta name="theme-color" content="#000000">
 
@@ -18,18 +18,23 @@
 
 </head>
 
-<body>
+<body style="display: inherit; top: 0px !important;">
 <div class="ui fixed menu inverted navbar" ng-controller="NavController">
     <a class="brand item" ui-sref-active="active" ui-sref="home">School Store</a>
     <a class="item" ng-show="AuthService.user" ui-sref="daily" ui-sref-active="active">Daily</a>
     <a class="item" ng-show="AuthService.isAdmin()" ui-sref="salesRecap" ui-sref-active="active">Sales Recap</a>
     <a class="item" ng-show="AuthService.isAdmin()" ui-sref="itemRecap" ui-sref-active="active">Item Recap</a>
     <a class="item" ng-show="AuthService.isAdmin()" ui-sref="itemSettings" ui-sref-active="active">Item Settings</a>
-    <a class="item" ng-show="AuthService.isAdmin()" ui-sref="studentSettings" ui-sref-active="active">Student Settings</a>
+    <a class="item" ng-show="AuthService.isAdmin()" ui-sref="studentSettings" ui-sref-active="active">Student
+        Settings</a>
 
     <div class="right menu">
-        <a class="item" ng-if="!AuthService.user" ng-cloak><button class="ui button" ng-click="showLoginDialog()">Login</button></a>
-        <a class="item" ng-if="AuthService.user" ng-click="logout()" ng-cloak><button class="ui red button">Logout</button></a>
+        <a class="item" ng-if="!AuthService.user" ng-cloak>
+            <button class="ui button" ng-click="showLoginDialog()">Login</button>
+        </a>
+        <a class="item" ng-if="AuthService.user" ng-click="logout()" ng-cloak>
+            <button class="ui red button">Logout</button>
+        </a>
     </div>
 </div>
 
